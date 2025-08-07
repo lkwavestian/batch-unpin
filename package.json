@@ -1,0 +1,68 @@
+{
+  "name": "batch-unpin",
+  "displayName": "Batch Unpin Tabs",
+  "description": "批量取消所有固定标签页的VSCode插件",
+  "version": "0.0.1",
+  "publisher": "batch-unpin",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "batch-unpin.unpinAllTabs",
+        "title": "取消固定标签页",
+        "category": "Batch Unpin",
+        "icon": {
+          "light": "./images/unpin-light.png",
+          "dark": "./images/unpin-light.png"
+        }
+      }
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "batch-unpin.unpinAllTabs",
+          "when": "true"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "batch-unpin.unpinAllTabs",
+          "when": "true",
+          "group": "1_modification"
+        }
+      ],
+      "editor/title": [
+        {
+          "command": "batch-unpin.unpinAllTabs",
+          "when": "true",
+          "group": "navigation@1"
+        }
+      ],
+      "statusBar/primary": [
+        {
+          "command": "batch-unpin.unpinAllTabs",
+          "when": "true",
+          "tooltip": "取消所有固定标签页"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "dev": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.74.0",
+    "@types/node": "16.x",
+    "typescript": "^4.9.4"
+  }
+}

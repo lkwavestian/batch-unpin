@@ -1,0 +1,6 @@
+{
+    "files.autoSave": "afterDelay",
+    "typescript.preferences.includePackageJsonAutoImports": "on",
+    "typescript.suggest.autoImports": true,
+    "typescript.updateImportsOnFileMove.enabled": "always"
+} 
