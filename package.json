@@ -3,13 +3,28 @@
   "displayName": "Batch Unpin Tabs",
   "description": "批量取消所有固定标签页的VSCode插件",
   "version": "0.0.1",
-  "publisher": "batch-unpin",
+  "publisher": "lkwavestian",
   "engines": {
     "vscode": "^1.74.0"
   },
   "categories": [
     "Other"
   ],
+  "keywords": [
+    "unpin",
+    "tabs",
+    "batch",
+    "editor",
+    "productivity"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lkwavestian/batch-unpin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lkwavestian/batch-unpin/issues"
+  },
+  "homepage": "https://github.com/lkwavestian/batch-unpin#readme",
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
