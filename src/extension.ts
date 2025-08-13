@@ -1,4 +1,5 @@
 import * as vscode from "vscode";
+import { t } from "./i18n";
 
 export function activate(context: vscode.ExtensionContext) {
   // 创建输出通道
@@ -49,37 +50,24 @@ async function unpinAllTabs() {
     const pinnedTabs = tabs.filter((tab: vscode.Tab) => tab.isPinned);
 
     if (pinnedTabs.length === 0) {
-      // 使用进度通知显示临时消息
-      vscode.window.withProgress(
-        {
-          location: vscode.ProgressLocation.Notification,
-          title: "没有找到固定标签页",
-          cancellable: false,
-        },
-        async (progress) => {
-          // 立即完成进度
-          progress.report({ increment: 100 });
-          // 等待2秒后自动消失
-          await new Promise((resolve) => setTimeout(resolve, 2000));
-        },
-      );
+      // 使用左下角消息提醒
+      vscode.window.showInformationMessage(t("message.noPinnedTabs"));
       return;
     }
 
     // 显示确认对话框
     const result = await vscode.window.showWarningMessage(
-      `确定要取消所有 ${pinnedTabs.length} 个固定标签页吗？`,
+      t("message.confirmUnpin", pinnedTabs.length.toString()),
       { modal: true },
-      "确定",
-      "取消",
+      t("button.confirm"),
     );
 
-    if (result === "确定") {
+    if (result === t("button.confirm")) {
       // 显示进度
       await vscode.window.withProgress(
         {
           location: vscode.ProgressLocation.Notification,
-          title: "正在取消固定标签页...",
+          title: t("message.progressUnpinning"),
           cancellable: false,
         },
         async (progress) => {
@@ -98,7 +86,12 @@ async function unpinAllTabs() {
               // 更新进度（倒序处理）
               const currentIndex = totalTabs - i;
               progress.report({
-                message: `正在处理第 ${currentIndex}/${totalTabs} 个标签页: ${tab.label}`,
+                message: t(
+                  "message.progressProcessing",
+                  currentIndex.toString(),
+                  totalTabs.toString(),
+                  tab.label,
+                ),
                 increment: 100 / totalTabs,
               });
 
@@ -190,40 +183,22 @@ async function unpinAllTabs() {
 
           // 显示结果
           if (unpinnedCount > 0) {
-            // 使用进度通知显示临时消息
-            vscode.window.withProgress(
-              {
-                location: vscode.ProgressLocation.Notification,
-                title: `成功取消 ${unpinnedCount}/${totalTabs} 个固定标签页`,
-                cancellable: false,
-              },
-              async (progress) => {
-                // 立即完成进度
-                progress.report({ increment: 100 });
-                // 等待2秒后自动消失
-                await new Promise((resolve) => setTimeout(resolve, 2000));
-              },
+            // 使用左下角消息提醒
+            vscode.window.showInformationMessage(
+              t(
+                "message.successUnpin",
+                unpinnedCount.toString(),
+                totalTabs.toString(),
+              ),
             );
           } else {
-            // 使用进度通知显示临时消息
-            vscode.window.withProgress(
-              {
-                location: vscode.ProgressLocation.Notification,
-                title: "没有成功取消任何固定标签页",
-                cancellable: false,
-              },
-              async (progress) => {
-                // 立即完成进度
-                progress.report({ increment: 100 });
-                // 等待2秒后自动消失
-                await new Promise((resolve) => setTimeout(resolve, 2000));
-              },
-            );
+            // 使用左下角消息提醒
+            vscode.window.showInformationMessage(t("message.noSuccessUnpin"));
           }
         },
       );
     }
   } catch (error) {
-    vscode.window.showErrorMessage("批量取消固定标签页时出错");
+    vscode.window.showErrorMessage(t("message.error"));
   }
 }

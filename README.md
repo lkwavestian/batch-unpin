@@ -1,4 +1,10 @@
-# Batch Unpin Tabs - VSCode 插件
+# Batch Unpin Tabs - 批量取消当前窗口固定标签页
+
+<div align="center">
+
+[English](README_EN.md) | [中文](README.md)
+
+</div>
 
 ## 功能描述
 
@@ -11,7 +17,8 @@
 - ⚡ 从后向前取消固定，避免标签页闪现移位现象
 - ⚠️ 操作前会显示确认对话框，防止误操作
 - 📊 显示操作结果和统计信息
-- 🎯 支持通过命令面板和编辑器标题栏访问
+- 📝 支持通过命令面板和编辑器标题栏访问
+- 🌍 支持多语言界面（中文/英文）
 
 ## 使用方法
 
@@ -24,6 +31,8 @@
 ### 方法 2：编辑器标题栏
 
 在编辑器标题栏的导航组中找到 "取消当前窗口固定标签页" 按钮
+
+![Button Icon](./images/button.png)
 
 ## 安装方法
 
@@ -64,7 +73,13 @@
 ```
 batch-unpin/
 ├── src/
-│   └── extension.ts      # 主要插件逻辑
+│   ├── extension.ts      # 主要插件逻辑
+│   └── i18n.ts          # 国际化支持
+├── i18n/
+│   ├── zh-cn.json       # 中文语言包
+│   └── en.json          # 英文语言包
+├── package.nls.json      # VSCode界面国际化（中文）
+├── package.nls.en.json   # VSCode界面国际化（英文）
 ├── package.json          # 插件配置
 ├── tsconfig.json         # TypeScript配置
 └── README.md            # 说明文档
@@ -76,12 +91,21 @@ batch-unpin/
 - 通过 `flatMap` 获取所有标签页
 - 使用 `filter` 筛选出固定标签页
 - 通过 `vscode.commands.executeCommand('workbench.action.unpinEditor')` 取消固定
+- 支持多语言界面，自动根据 VSCode 语言设置切换
+
+### 国际化特性
+
+- **VSCode 界面国际化**：命令标题、工具提示等界面元素支持中英文
+- **运行时国际化**：操作过程中的所有消息都支持多语言
+- **自动语言检测**：根据用户的 VSCode 语言设置自动选择对应语言
+- **参数化消息**：支持动态参数替换，如标签页数量等
 
 ## 注意事项
 
 - 插件会显示确认对话框，防止误操作
 - 如果当前没有固定标签页，会显示提示信息
 - 操作完成后会显示成功取消的标签页数量
+- 界面语言会根据 VSCode 设置自动切换
 
 ## 许可证
 

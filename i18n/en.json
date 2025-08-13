@@ -1,0 +1,18 @@
+
+
+
+{
+    "extension.description": "VSCode extension to batch unpin all pinned tabs",
+    "command.unpinAllTabs.title": "Unpin All Pinned Tabs in Current Window",
+    "command.unpinAllTabs.category": "Batch Unpin",
+    "command.unpinAllTabs.tooltip": "Unpin all pinned tabs",
+    "message.noPinnedTabs": "No pinned tabs found",
+    "message.confirmUnpin": "Are you sure you want to unpin all {0} pinned tab(s)?",
+    "message.progressUnpinning": "Unpinning tabs...",
+    "message.progressProcessing": "Processing tab {0}/{1}: {2}",
+    "message.successUnpin": "Successfully unpinned {0}/{1} tab(s)",
+    "message.noSuccessUnpin": "No tabs were successfully unpinned",
+    "message.error": "Error occurred while batch unpinning tabs",
+    "button.confirm": "Confirm",
+    "button.cancel": "Cancel"
+  }

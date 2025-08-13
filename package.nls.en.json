@@ -1,0 +1,5 @@
+{
+  "extension.description": "VSCode extension to batch unpin all pinned tabs",
+  "command.unpinAllTabs.title": "Unpin All Pinned Tabs in Current Window",
+  "command.unpinAllTabs.tooltip": "Unpin all pinned tabs"
+}

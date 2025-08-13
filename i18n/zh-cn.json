@@ -1,0 +1,15 @@
+{
+  "extension.description": "批量取消所有固定标签页的VSCode插件",
+  "command.unpinAllTabs.title": "取消当前窗口固定标签页",
+  "command.unpinAllTabs.category": "Batch Unpin",
+  "command.unpinAllTabs.tooltip": "取消所有固定标签页",
+  "message.noPinnedTabs": "没有找到固定标签页",
+  "message.confirmUnpin": "确定要取消所有 {0} 个固定标签页吗？",
+  "message.progressUnpinning": "正在取消固定标签页...",
+  "message.progressProcessing": "正在处理第 {0}/{1} 个标签页: {2}",
+  "message.successUnpin": "成功取消 {0}/{1} 个固定标签页",
+  "message.noSuccessUnpin": "没有成功取消任何固定标签页",
+  "message.error": "批量取消固定标签页时出错",
+  "button.confirm": "确定",
+  "button.cancel": "取消"
+}
