@@ -25,6 +25,12 @@
     "url": "https://github.com/lkwavestian/batch-unpin/issues"
   },
   "homepage": "https://github.com/lkwavestian/batch-unpin#readme",
+  "license": "MIT",
+  "icon": "images/icon.png",
+  "galleryBanner": {
+    "color": "#2D3748",
+    "theme": "dark"
+  },
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
